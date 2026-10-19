@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What's On Near Bed in the Shed</title>
+<meta name="description" content="Events, attractions, walks and places to eat within 5 miles of The Firs, Langley Park, Durham.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<style>html,body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+/* Palette taken from bedintheshed.co.uk: forest #303A2F, cream #F7F3EC, stone #D9D8D3, ink #262626 */
+:root{
+  --ground:#F7F3EC; --surface:#FFFFFF; --ink:#262626; --muted:#6B6F66; --line:#D9D8D3;
+  --forest:#303A2F; --forest-soft:#E7E9E3; --on-forest:#F7F3EC;
+  --accent:#5C6B4F; --accent-soft:#E9EBE2;
+  --event:#3F5140; --attraction:#6E6A4E; --eat:#8A5A3C; --outdoors:#4A6670;
+  --shadow:0 1px 2px rgba(38,38,38,.05),0 6px 20px rgba(48,58,47,.06);
+  --display:"Jost",-apple-system,"Segoe UI",sans-serif;
+  --body:"Jost",-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-weight:300;font-size:16px;line-height:1.6;letter-spacing:.005em;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 56px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:6px}
+
+/* Masthead */
+.mast{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.brand{font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+h1{font-family:var(--display);font-weight:300;font-size:clamp(32px,4.6vw,50px);line-height:1.12;letter-spacing:.01em;margin:0 0 16px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{color:var(--muted);max-width:56ch;margin:0 0 18px}
+.from{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--muted)}
+.from strong{color:var(--ink);font-weight:600}
+.from .pin{display:inline-flex;gap:6px;align-items:center}
+
+/* Check-in gate */
+.gate{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding-block:clamp(8px,6vh,72px)}
+.gate-points{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:14px;color:var(--muted)}
+.gate-points strong{display:block;font-family:var(--display);font-weight:300;font-size:28px;color:var(--forest);line-height:1.1}
+.checkin{background:var(--forest);color:var(--on-forest);border-radius:4px;padding:28px;box-shadow:var(--shadow)}
+.checkin .field label{color:var(--on-forest);opacity:.85;font-weight:400;letter-spacing:.08em;text-transform:uppercase;font-size:11px}
+.checkin .field input{background:transparent;border:1px solid rgba(247,243,236,.35);color:var(--on-forest);border-radius:3px}
+.checkin .field input:focus{outline:2px solid var(--on-forest);outline-offset:1px}
+.checkin .consent{color:rgba(247,243,236,.85)}
+.checkin .consent input{accent-color:var(--on-forest)}
+.checkin .small{color:rgba(247,243,236,.6)}
+.checkin .btn{background:transparent;border:1px solid var(--on-forest);color:var(--on-forest)}
+.checkin .btn:hover{background:var(--on-forest);color:var(--forest);filter:none}
+.checkin .msg.err{color:#F2B8B0}
+.checkin h2{font-family:var(--display);font-weight:300;font-size:15px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 20px;padding-bottom:14px;border-bottom:1px solid rgba(247,243,236,.25)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.small{font-size:12.5px;color:var(--muted);margin:10px 0 0}
+/* Contact panel */
+.contact{background:var(--forest);color:var(--on-forest);border-radius:4px;padding:26px}
+.contact .eyebrow{font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;opacity:.75;margin:0 0 6px}
+.contact h2{font-family:var(--display);font-weight:300;font-size:30px;margin:0 0 8px;line-height:1.1;letter-spacing:.01em}
+.contact p{margin:0 0 14px;font-size:14.5px;opacity:.9}
+.ct-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.ct-list li{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;padding-top:10px;border-top:1px solid rgba(247,243,236,.25)}
+.ct-list span{font-size:11px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;opacity:.7;width:52px}
+.ct-list a{color:var(--on-forest);font-weight:400;font-size:16px;text-decoration:none;border-bottom:1px solid rgba(247,243,236,.5);overflow-wrap:anywhere}
+.contact .hello{margin:14px 0 0;font-size:13.5px}
+.linkbtn{font:inherit;font-size:13px;background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:pointer}
+.field{display:grid;gap:4px;margin-bottom:10px}
+.field label{font-size:13px;font-weight:500}
+.field input{font:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--ground);color:var(--ink);width:100%}
+.field input:focus{outline:2px solid var(--focus);outline-offset:0;border-color:transparent}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:4px 0 14px}
+.consent input{margin-top:3px;accent-color:var(--forest);width:16px;height:16px;flex:none}
+.btn{font:inherit;font-weight:400;font-size:13px;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--forest);border-radius:3px;padding:13px 16px;background:var(--forest);color:var(--on-forest);cursor:pointer;width:100%}
+.btn:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.6;cursor:progress}
+.msg{font-size:14px;margin:10px 0 0;min-height:1em}
+.msg.err{color:#B3261E}
+.thanks{display:grid;gap:6px}
+.thanks strong{font-family:var(--display);font-weight:300;font-size:22px}
+
+/* Filters */
+.filters{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);padding-block:16px 12px;border-bottom:1px solid var(--line);display:grid;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row .lbl{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);width:64px;flex:none}
+.chip{font:inherit;font-size:13px;font-weight:400;letter-spacing:.04em;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c,var(--muted))}
+.chip[aria-pressed="true"]{background:var(--forest);color:var(--on-forest);border-color:var(--forest)}
+.chip[aria-pressed="true"] .dot{background:var(--on-forest)}
+.chip .n{font-size:12px;opacity:.65;font-variant-numeric:tabular-nums}
+.search{font:inherit;font-size:14px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);min-width:0;flex:1 1 180px;max-width:280px}
+.count{font-size:14px;color:var(--muted);margin:18px 0 12px}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.cat{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--c);display:inline-flex;gap:7px;align-items:center}
+.cat::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--c)}
+.price{font-weight:500;font-size:15px;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.price .on{color:var(--ink)}.price .off{color:var(--line)}
+.card h3{font-family:var(--display);font-weight:300;font-size:22px;line-height:1.25;margin:0;text-wrap:balance}
+.when{font-size:13.5px;font-weight:500;color:var(--forest);background:var(--forest-soft);border-radius:3px;padding:5px 10px;align-self:flex-start;letter-spacing:.02em}
+.card p{margin:0;font-size:14.5px;color:var(--muted)}
+.meta{display:grid;gap:4px;font-size:13.5px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+.meta div{display:flex;gap:8px}
+.meta span:first-child{color:var(--muted);width:62px;flex:none}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:3px 10px;font-weight:400;letter-spacing:.03em}
+.links{display:flex;gap:16px;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.links a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+.empty{padding:40px 0;text-align:center;color:var(--muted)}
+.foot{margin-top:40px;font-size:13px;color:var(--muted);display:grid;gap:6px;max-width:80ch}
+.key{display:flex;flex-wrap:wrap;gap:4px 16px}
+
+@media (max-width:560px){
+  .wrap{padding-block:18px 40px}
+  h1{font-size:30px;line-height:1.14;margin-bottom:10px}
+  .lede{font-size:15px;margin-bottom:12px}
+  .from{font-size:13px;gap:4px 14px}
+  .mast{padding-bottom:18px}
+  .contact{padding:18px}
+  .contact h2{font-size:23px}
+  .contact p{font-size:13.5px;margin-bottom:10px}
+  .gate{padding-block:4px 20px}
+  .gate-points{gap:8px 20px;margin-top:16px}
+  .gate-points strong{font-size:22px}
+  .checkin{padding:20px}
+  .card{padding:16px}
+  .grid{gap:12px}
+}
+@media (max-width:820px){.mast,.gate{grid-template-columns:1fr}.gate{gap:24px}.row .lbl{width:100%}}
+@media (max-width:420px){.pair{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--muted)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="gate" id="gate" aria-labelledby="ci-h">
+    <div class="gate-intro">
+      <p class="brand">Bed in the Shed · Langley Park</p>
+      <h1 id="ci-h">Welcome — <em>check in</em> to see what's on nearby</h1>
+      <p class="lede">Pop your details in and we'll open up our guide to local events, days out, country pubs and places to eat — all within five miles of your shed.</p>
+      <ul class="gate-points">
+        <li><strong>41</strong> hand-picked listings</li>
+        <li><strong>5 mi</strong> from Wallnook Lane</li>
+        <li><strong>£–££££</strong> filter by budget</li>
+      </ul>
+    </div>
+    <form class="checkin" id="checkin" novalidate>
+      <h2>Check in</h2>
+      <div class="pair">
+        <div class="field"><label for="ci-first">First name</label><input id="ci-first" name="firstName" autocomplete="given-name" required></div>
+        <div class="field"><label for="ci-last">Last name</label><input id="ci-last" name="lastName" autocomplete="family-name" required></div>
+      </div>
+      <div class="field"><label for="ci-email">Email address</label><input id="ci-email" name="email" type="email" autocomplete="email" required></div>
+      <label class="consent" for="ci-optin"><input id="ci-optin" name="optIn" type="checkbox"><span>Keep me posted — send me the monthly local round-up and guest offers. I can unsubscribe at any time.</span></label>
+      <button class="btn" type="submit" id="ci-btn">Check in</button>
+      <p class="msg" id="ci-msg" role="status" aria-live="polite"></p>
+      <p class="small">We only use your details for your stay and, if you opt in, our newsletter.</p>
+    </form>
+  </section>
+
+  <div id="app" hidden>
+  <header class="mast">
+    <div>
+      <p class="brand">Bed in the Shed · The Firs, Langley Park</p>
+      <h1>What's on within <em>five miles</em> of your shed</h1>
+      <p class="lede">Our pick of local events, days out, country pubs and places to eat — from Diggerland at the bottom of the lane to concerts in Durham Cathedral. Filter by what you fancy and how much you want to spend.</p>
+      <div class="from">
+        <span class="pin"><strong>Starting point:</strong> Wallnook Lane, Langley Park, DH7 9TW</span>
+        <span><strong>Durham City:</strong> about 5 miles · 15 min drive</span>
+      </div>
+    </div>
+
+    <aside class="contact" aria-labelledby="ct-h">
+      <p class="eyebrow">Your host</p>
+      <h2 id="ct-h">Andrea</h2>
+      <p>Questions about your stay, directions or a recommendation? Get in touch any time.</p>
+      <ul class="ct-list">
+        <li><span>Email</span><a href="mailto:hello@bedintheshed.co.uk">hello@bedintheshed.co.uk</a></li>
+        <li><span>Phone</span><a href="tel:+447530838550">+44 7530 838550</a></li>
+      </ul>
+      <p class="hello" id="hello" hidden></p>
+    </aside>
+  </header>
+
+  <nav class="filters" aria-label="Filter listings">
+    <div class="row" id="cat-row"><span class="lbl">Type</span></div>
+    <div class="row" id="price-row"><span class="lbl">Price</span>
+      <input class="search" id="q" type="search" placeholder="Search e.g. Sunday lunch, dog friendly" aria-label="Search listings">
+    </div>
+  </nav>
+
+  <p class="count" id="count" aria-live="polite"></p>
+  <main class="grid" id="grid"></main>
+  <p class="empty" id="empty" hidden>Nothing matches those filters — try another price or type.</p>
+
+  <footer class="foot">
+    <div class="key"><span><strong>£</strong> free – £10pp</span><span><strong>££</strong> £10–25</span><span><strong>£££</strong> £25–50</span><span><strong>££££</strong> £50+</span></div>
+    <p>Distances are approximate straight-line miles from The Firs. Price bands are a guide — dates, times and prices can change, so please check with the venue before you travel. Past events drop off this page automatically. Events are refreshed weekly.</p>
+    <p><button type="button" class="linkbtn" id="checkout">Not you? Check in again</button></p>
+  </footer>
+  </div>
+</div>
+
+<script>
+/* ---- Settings ------------------------------------------------------
+   CHECKIN_ENDPOINT: the Google Apps Script web app URL that writes each
+   check-in into the Google Sheet (first name, last name, email, opted in).
+   Paste the /exec URL you get when you deploy the script.
+   Left blank, check-in validates and opens the guide but saves nothing. */
+const CHECKIN_ENDPOINT = "";
+/* EVENTS_ENDPOINT: the same /exec URL. The page reads the Events tab from it on load,
+   so the weekly refresh reaches guests without the page being edited. */
+const EVENTS_ENDPOINT = "";
+const ORIGIN = "The Firs, Wallnook Lane, Langley Park, Durham DH7 9TW";
+
+const CATS = {
+  event:{label:"Events",one:"Event",c:"var(--event)"},
+  attraction:{label:"Attractions",one:"Attraction",c:"var(--attraction)"},
+  eat:{label:"Eat & drink",one:"Eat & drink",c:"var(--eat)"},
+  outdoors:{label:"Outdoors",one:"Outdoors",c:"var(--outdoors)"}
+};
+
+/* end: ISO date the listing stops showing (events only) */
+const LISTINGS = [
+  // ---- Attractions
+  {cat:"attraction",name:"Diggerland Durham",price:3,dist:0.5,addr:"Riverside Industrial Estate, Langley Park, Durham DH7 9TT",
+   blurb:"Ride and drive real diggers, dumpers and JCBs — plus go-karts, a jeep safari and soft play. Right on our doorstep.",
+   hours:"Weekends & school holidays, mid-Feb to Oct",tags:["Family","Walkable"],url:"https://www.diggerland.com/diggerland-durham/",
+   note:"From £25.95pp booked online the day before; under 90cm free"},
+  {cat:"attraction",name:"Ushaw Historic House, Chapels & Gardens",price:2,dist:2.2,addr:"Woodland Road, Ushaw Moor, Durham DH7 7DW",
+   blurb:"Gothic Revival chapels by Pugin, a world-renowned library and 500 acres of gardens and woodland. Café on site.",
+   hours:"Daily 10am–4pm · café to 3:30pm",tags:["Rainy day","Dog friendly","Family"],url:"https://ushaw.org/plan-your-visit/"},
+  {cat:"attraction",name:"Durham Cathedral",price:1,dist:4.8,addr:"The College, Durham DH1 3EH",
+   blurb:"UNESCO World Heritage cathedral. Free to enter (£5 suggested donation); tower climb of 325 steps and guided tours bookable.",
+   hours:"Daily — check service times",tags:["Rainy day","History"],url:"https://www.durhamcathedral.co.uk/visit-us/plan-your-visit"},
+  {cat:"attraction",name:"Durham Castle",price:2,dist:4.8,addr:"Palace Green, Durham DH1 3RW",
+   blurb:"Norman castle and university college, seen by guided tour only — now with a light and sound projection. Book ahead in holidays.",
+   hours:"Guided tours — times vary",tags:["History","Rainy day"],url:"https://www.durham.ac.uk/things-to-do/venues/durham-castle/visit/tickets-and-times/"},
+  {cat:"attraction",name:"Gala Durham — Theatre & Cinema",price:1,dist:4.7,addr:"Millennium Place, Durham DH1 1WA",
+   blurb:"Durham's theatre and small, comfy cinema. Touring comedy, dance and the famous annual panto.",
+   hours:"Show & film times vary",tags:["Rainy day","Evening"],url:"https://galadurham.co.uk/",note:"Cinema tickets from about £5"},
+  {cat:"attraction",name:"Crook Hall Gardens",price:2,dist:4.6,addr:"Frankland Lane, Durham DH1 5SZ",
+   blurb:"Medieval hall with walled gardens, a maze and views to the cathedral. Garden Gate Café for lunch.",
+   tags:["Gardens","Family"],url:"https://www.thisisdurham.com/"},
+
+  // ---- Outdoors
+  {cat:"outdoors",name:"Lanchester Valley Railway Path",price:1,dist:0.6,addr:"Access at Langley Park, Witton Gilbert & Lanchester",addrQ:"Lanchester Valley Railway Path, Langley Park",
+   blurb:"Flat, traffic-free old railway line between Durham and Consett — easy walking or cycling through the Browney Valley.",
+   tags:["Free","Dog friendly","Cycling"],url:"https://www.thisisdurham.com/explore-durham/vale-of-durham/lanchester"},
+  {cat:"outdoors",name:"Old Esh village & Browney Valley",price:1,dist:1.2,addr:"Front Street, Esh, Durham DH7 9QR",
+   blurb:"Pretty hilltop village with far-reaching views over the valley. Walk up, then reward yourself at the Cross Keys.",
+   tags:["Free","Dog friendly","Views"],url:"https://www.thisisdurham.com/explore-durham/vale-of-durham/lanchester"},
+
+  // ---- Eat & drink
+  {cat:"eat",name:"The Cross Keys, Esh",price:2,dist:1.2,addr:"Front Street, Esh, Durham DH7 9QR",tel:"0191 373 1279",
+   blurb:"18th-century village inn with a lounge overlooking the Browney Valley. Homemade pies, steaks and a big Sunday roast.",
+   hours:"Mon–Thu 4–8pm · Fri–Sat 12–8pm · Sun 12–5pm",tags:["Sunday lunch","Pub","Views"],url:"https://camra.org.uk/pubs/cross-keys-esh-186943"},
+  {cat:"eat",name:"The Travellers Rest",price:2,dist:1.4,addr:"Front Street, Witton Gilbert, Durham DH7 6TQ",tel:"0191 371 0458",
+   blurb:"Family and dog-friendly country pub with home-cooked food. Tapas Wednesdays (3 plates £15), Thursday Grill Day (2 drinks, 2 starters, 2 mains £40).",
+   hours:"Food daily except Monday lunch · booking advised",tags:["Dog friendly","Sunday lunch","Pub"],url:"https://www.travellersrest-wittongilbert.co.uk/"},
+  {cat:"eat",name:"Glendenning Arms",price:1,dist:1.3,addr:"Front Street, Witton Gilbert, Durham DH7 6SY",
+   blurb:"Proper village local for a quiet pint and a good atmosphere.",tags:["Pub","Drinks"]},
+  {cat:"eat",name:"Ravello Ristorante",price:2,dist:3.3,addr:"9 Church View, Lanchester, Durham DH7 0ES",tel:"01207 528 825",
+   blurb:"Much-loved Italian with an all-Italian kitchen — excellent seafood, pasta and pizza. Bookings by phone only.",
+   hours:"Daily 12pm–10:30pm",tags:["Date night","Family"],url:"https://www.ravellolanchester.com/"},
+  {cat:"eat",name:"Flat White Kitchen",price:2,dist:4.8,addr:"40 Saddler Street, Durham DH1 3NU",
+   blurb:"Durham's favourite brunch spot in a 17th-century townhouse — avocado toast, baked eggs and serious coffee.",
+   tags:["Brunch","Coffee"],url:"https://www.livingnorth.com/article/where-eat-durham-city-centre"},
+  {cat:"eat",name:"The Cellar Door",price:3,dist:4.8,addr:"41 Saddler Street, Durham DH1 3NU",tel:"0191 383 1856",
+   blurb:"Tucked down steps off Saddler Street: seasonal modern British cooking and a terrace over the River Wear.",
+   tags:["Date night","River views"],url:"https://www.livingnorth.com/article/where-eat-durham-city-centre"},
+  {cat:"eat",name:"Zen",price:2,dist:4.9,addr:"Court Lane, Durham DH1 3JS",tel:"0191 384 9588",
+   blurb:"Popular Thai street-food inspired kitchen with great cocktails and a blossom-tree terrace. Dog friendly.",
+   tags:["Dog friendly","Cocktails"],url:"https://www.livingnorth.com/article/14-our-favourite-restaurants-durham"},
+  {cat:"eat",name:"The Curious Mr Fox",price:2,dist:4.7,addr:"35a The Riverwalk, Durham DH1 4SL",tel:"0191 329 3559",
+   blurb:"Small plates, sharing boards and afternoon tea by Framwellgate Bridge, with cathedral views.",
+   tags:["Afternoon tea","River views"],url:"https://www.livingnorth.com/article/14-our-favourite-restaurants-durham"},
+  {cat:"eat",name:"Coarse",price:3,dist:4.6,addr:"Reform Place, North Road, Durham DH1 4RZ",tel:"0191 380 5776",
+   blurb:"Michelin Guide-recommended six-course tasting menu built on local, seasonal produce. Book ahead.",
+   tags:["Tasting menu","Special occasion"],url:"https://www.livingnorth.com/article/where-eat-durham-city-centre"},
+  {cat:"eat",name:"Faru",price:4,dist:4.8,addr:"29 Silver Street, Durham DH1 3RD",tel:"0191 380 5451",
+   blurb:"Five- and ten-course tasting menus from a team formerly at Michelin-starred House of Tides. Wine flight available.",
+   tags:["Tasting menu","Special occasion"],url:"https://www.livingnorth.com/article/where-eat-durham-city-centre"}
+];
+
+/* Events are refreshed weekly into the Google Sheet; this list is the
+   fallback the page shows if the sheet cannot be reached. */
+const EVENTS_FALLBACK = [
+  {cat:"event",name:"Durham Jazz Festival",when:"Fri 23 – Sun 25 Oct",start:"2026-10-23",end:"2026-10-25",price:2,dist:4.8,addr:"Durham City venues, Durham DH1",
+   blurb:"Three days of live jazz across venues in the city.",tags:["Music", "Festival"],url:"https://www.thisisdurham.com/whats-on"},
+  {cat:"event",name:"Technology, AI and the Human Future",when:"Wed 28 Oct · 7:30pm",start:"2026-10-28",end:"2026-10-28",price:2,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Durham Cathedral Institute talk, doors 6:30pm.",tags:["Talk", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Scouting For Girls — Live",when:"Thu 29 Oct · 7pm",start:"2026-10-29",end:"2026-10-29",price:3,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"The band's greatest hits, live inside the cathedral.",tags:["Music", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Boney M. — Live",when:"Fri 30 Oct · 7pm",start:"2026-10-30",end:"2026-10-30",price:3,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Disco powerhouse Boney M. live in Durham Cathedral.",tags:["Music", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Durham Festival of Remembrance",when:"Sat 7 Nov · 7:30pm",start:"2026-11-07",end:"2026-11-07",price:2,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"One of the North East's biggest acts of commemoration.",tags:["Music", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Remembrance Sunday Service",when:"Sun 8 Nov · 10:15am",start:"2026-11-08",end:"2026-11-08",price:1,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"The cathedral's Remembrance Sunday service. Free to attend.",tags:["Free", "Service"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Johns' Boys Welsh Male Voice Choir",when:"Sat 14 Nov · 7:30pm",start:"2026-11-14",end:"2026-11-14",price:2,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Chart hits, opera, musical theatre and Welsh hymns.",tags:["Music", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Rapunzel — Gala Durham Pantomime",when:"19 Nov – 31 Dec",start:"2026-11-19",end:"2026-12-31",price:2,dist:4.8,addr:"Gala Durham, Millennium Place, Durham DH1 1WA",
+   blurb:"Gala's panto with a County Durham twist. 15% off family tickets of four on selected dates.",tags:["Family", "Christmas"],url:"https://galadurham.co.uk/galapost/rapunzel/"},
+  {cat:"event",name:"Candlelight: Coldplay & Fleetwood Mac",when:"Fri 20 Nov · 7:30pm & 9:30pm",start:"2026-11-20",end:"2026-11-20",price:3,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Two candlelit tribute sets in one evening.",tags:["Music", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Christmas Tree Festival",when:"22 Nov – 3 Jan",start:"2026-11-22",end:"2027-01-03",price:1,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Decorated trees fill the cathedral through the festive season.",tags:["Christmas", "Family", "Free"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"G4 Christmas",when:"Mon 23 Nov · 7:30pm",start:"2026-11-23",end:"2026-11-23",price:3,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"The harmony group's festive tour comes to the cathedral.",tags:["Music", "Christmas"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Royal Northern Sinfonia — Brass & Chorus",when:"Fri 27 Nov · 7:30pm",start:"2026-11-27",end:"2026-11-27",price:3,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Carols in rich new arrangements, Gabrieli brass and festive favourites.",tags:["Music", "Christmas"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Advent Procession",when:"Sat 28 & Sun 29 Nov · 6pm",start:"2026-11-28",end:"2026-11-29",price:1,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Candlelit procession marking the start of Advent.",tags:["Free", "Christmas", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Big Christmas Sing-A-Long with Aled Jones & Alexander Armstrong",when:"Wed 2 Dec · 7:30pm",start:"2026-12-02",end:"2026-12-02",price:3,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"An evening of carols, music and laughter.",tags:["Music", "Christmas"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Durham Christmas Festival",when:"Fri 4 – Sun 6 Dec",start:"2026-12-04",end:"2026-12-06",price:1,dist:4.8,addr:"Market Place, Durham DH1 3NJ",
+   blurb:"Festive market stalls and entertainment across the city.",tags:["Christmas", "Family", "Free"],url:"https://www.visitcountydurham.org/key-events-in-durham/"},
+  {cat:"event",name:"The Snowman — Film with Live Orchestra",when:"Sat 5 Dec · various times",start:"2026-12-05",end:"2026-12-05",price:2,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"The much-loved film screened with its score played live.",tags:["Family", "Christmas"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Children's Lantern Parade & St Nicholas' Service",when:"Sun 6 Dec · 3:30pm",start:"2026-12-06",end:"2026-12-06",price:1,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Lantern parade into the cathedral for the St Nicholas service.",tags:["Family", "Christmas", "Free"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Friends of Durham Cathedral Christmas Concert",when:"Thu 10 Dec · 7:30pm",start:"2026-12-10",end:"2026-12-10",price:2,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"The Friends' annual festive concert.",tags:["Music", "Christmas"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Britten's Ceremony of Carols",when:"Sat 12 Dec · 6pm",start:"2026-12-12",end:"2026-12-12",price:2,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"An hour of Britten's carol sequence, doors 5:15pm.",tags:["Music", "Christmas"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Blessing of the Crib & Christmas Tree Lighting",when:"Sun 13 Dec · 3:30pm",start:"2026-12-13",end:"2026-12-13",price:1,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"The cathedral's crib blessing and tree lighting.",tags:["Free", "Christmas", "Family"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Festival of Nine Lessons and Carols",when:"Various dates in December",start:"2026-12-20",end:"2026-12-24",price:1,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"The traditional carol service — check the cathedral site for this year's dates.",tags:["Free", "Christmas"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"90s Silent Disco",when:"Fri 15 Jan · 7pm",start:"2027-01-15",end:"2027-01-15",price:2,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Three channels of pop, hip-hop and dance under the stone arches.",tags:["Music", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Durham Choral Society: Messiah",when:"Sat 23 Jan · 7:30pm",start:"2027-01-23",end:"2027-01-23",price:2,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Handel's Messiah in the cathedral nave.",tags:["Music", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Tribute to Hans Zimmer & Film Favourites",when:"Fri 5 Feb · 7:15pm",start:"2027-02-05",end:"2027-02-05",price:3,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Film music with a live chamber orchestra, illuminated.",tags:["Music", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Berlioz 'Requiem' — Durham University Choral & Orchestral Societies",when:"Wed 17 Feb · 7:30pm",start:"2027-02-17",end:"2027-02-17",price:2,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Berlioz's monumental Requiem, 450-performer scale.",tags:["Music", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"The Love Orchestra",when:"Fri 19 Feb · 7:30pm",start:"2027-02-19",end:"2027-02-19",price:3,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"A Valentine's-season orchestral evening.",tags:["Music", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"},
+  {cat:"event",name:"Se Gæst | The Guest",when:"Thu 25 Feb · 7:30pm",start:"2027-02-25",end:"2027-02-25",price:2,dist:4.8,addr:"Durham Cathedral, The College, Durham DH1 3EH",
+   blurb:"Dance, live music and storytelling on belonging and change.",tags:["Dance", "Evening"],url:"https://www.durhamcathedral.co.uk/visit-us/concerts-events"}
+];
+
+
+/* ---------- Render ---------- */
+const today = new Date(); today.setHours(0,0,0,0);
+const PLACES = LISTINGS.filter(l => l.cat !== "event");
+let EVENTS = EVENTS_FALLBACK;
+let live = [];
+function rebuild(){
+  live = PLACES.concat(EVENTS).filter(l => !l.end || new Date(l.end+"T23:59:59") >= today);
+}
+rebuild();
+const state = {cat:"all", price:"all", q:""};
+try { const f = JSON.parse(localStorage.getItem("bits-filters")||"null"); if (f) Object.assign(state, f, {q:""}); } catch(e){}
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dirUrl = l => "https://www.google.com/maps/dir/?api=1&origin="+encodeURIComponent(ORIGIN)+"&destination="+encodeURIComponent(l.addrQ||l.addr);
+
+function chip(label, pressed, onClick, color, n){
+  const b = document.createElement("button");
+  b.type="button"; b.className="chip"; b.setAttribute("aria-pressed", pressed);
+  if (color) b.style.setProperty("--c", color);
+  b.innerHTML = (color?'<span class="dot"></span>':'')+esc(label)+(n!=null?' <span class="n">'+n+'</span>':'');
+  b.addEventListener("click", onClick); return b;
+}
+function buildFilters(){
+  const cr = $("#cat-row"), pr = $("#price-row");
+  cr.querySelectorAll(".chip").forEach(x=>x.remove()); pr.querySelectorAll(".chip").forEach(x=>x.remove());
+  cr.append(chip("Everything", state.cat==="all", ()=>set({cat:"all"}), null, live.length));
+  for (const [k,v] of Object.entries(CATS)) cr.append(chip(v.label, state.cat===k, ()=>set({cat:k}), v.c, live.filter(l=>l.cat===k).length));
+  const q = $("#q");
+  pr.insertBefore(chip("Any", state.price==="all", ()=>set({price:"all"})), q);
+  [1,2,3,4].forEach(p => pr.insertBefore(chip("£".repeat(p), state.price===p, ()=>set({price:p})), q));
+}
+function set(p){ Object.assign(state,p); try{localStorage.setItem("bits-filters",JSON.stringify({cat:state.cat,price:state.price}))}catch(e){} buildFilters(); render(); if(typeof sendHeight==="function") sendHeight();
+
+/* Pull the latest events from the sheet. The page has already rendered from the
+   fallback list, so a slow or failed fetch costs the guest nothing. */
+if(EVENTS_ENDPOINT){
+  fetch(EVENTS_ENDPOINT).then(r=>r.json()).then(data=>{
+    if(!data || !data.ok || !Array.isArray(data.events) || !data.events.length) return;
+    EVENTS = data.events.map(ev => ({
+      cat:"event", name:ev.name, when:ev.when, start:ev.start, end:ev.end,
+      price:Number(ev.price)||2, dist:Number(ev.dist)||4.8,
+      addr:[ev.venue,ev.addr].filter(Boolean).join(", "),
+      blurb:ev.blurb||"", tags:ev.tags||[], url:ev.url||""
+    })).filter(ev => ev.name);
+    rebuild(); buildFilters(); render(); if(typeof sendHeight==="function") sendHeight();
+  }).catch(()=>{});
+} }
+
+function card(l){
+  const c = CATS[l.cat];
+  const price = '<span class="price" aria-label="Price band '+l.price+' of 4">'+[1,2,3,4].map(i=>'<span class="'+(i<=l.price?'on':'off')+'">£</span>').join("")+'</span>';
+  return '<article class="card" style="--c:'+c.c+'">'
+   +'<div class="top"><span class="cat">'+c.one+'</span>'+price+'</div>'
+   +'<h3>'+esc(l.name)+'</h3>'
+   +(l.when?'<span class="when">'+esc(l.when)+'</span>':'')
+   +'<p>'+esc(l.blurb)+'</p>'
+   +(l.tags?'<div class="tags">'+l.tags.map(t=>'<span class="tag">'+esc(t)+'</span>').join("")+'</div>':'')
+   +'<div class="meta">'
+     +'<div><span>Where</span><span>'+esc(l.addr)+'</span></div>'
+     +'<div><span>Distance</span><span>≈ '+l.dist.toFixed(1)+' miles</span></div>'
+     +(l.hours?'<div><span>Open</span><span>'+esc(l.hours)+'</span></div>':'')
+     +(l.note?'<div><span>Price</span><span>'+esc(l.note)+'</span></div>':'')
+     +(l.tel?'<div><span>Phone</span><span><a href="tel:'+l.tel.replace(/\s/g,"")+'">'+esc(l.tel)+'</a></span></div>':'')
+   +'</div>'
+   +'<div class="links"><a href="'+dirUrl(l)+'" target="_blank" rel="noopener">Directions</a>'+(l.url?'<a href="'+esc(l.url)+'" target="_blank" rel="noopener">More info</a>':'')+'</div>'
+   +'</article>';
+}
+function render(){
+  const q = state.q.trim().toLowerCase();
+  let items = live.filter(l => (state.cat==="all"||l.cat===state.cat) && (state.price==="all"||l.price===state.price)
+    && (!q || [l.name,l.blurb,l.addr,(l.tags||[]).join(" "),l.when||""].join(" ").toLowerCase().includes(q)));
+  // Events by date first, then everything else by distance
+  items.sort((a,b)=> (a.end?0:1)-(b.end?0:1) || (a.end&&b.end? (a.start||a.end).localeCompare(b.start||b.end) : a.dist-b.dist));
+  if (state.cat==="all") items.sort((a,b)=> a.dist-b.dist); // mixed view: nearest first
+  $("#grid").innerHTML = items.map(card).join("");
+  $("#empty").hidden = items.length>0;
+  $("#count").textContent = items.length+" "+(items.length===1?"listing":"listings")+(state.cat==="event"?" · soonest first":" · nearest first");
+}
+$("#q").addEventListener("input", e=>{ state.q=e.target.value; render(); });
+buildFilters(); render(); if(typeof sendHeight==="function") sendHeight();
+
+/* Pull the latest events from the sheet. The page has already rendered from the
+   fallback list, so a slow or failed fetch costs the guest nothing. */
+if(EVENTS_ENDPOINT){
+  fetch(EVENTS_ENDPOINT).then(r=>r.json()).then(data=>{
+    if(!data || !data.ok || !Array.isArray(data.events) || !data.events.length) return;
+    EVENTS = data.events.map(ev => ({
+      cat:"event", name:ev.name, when:ev.when, start:ev.start, end:ev.end,
+      price:Number(ev.price)||2, dist:Number(ev.dist)||4.8,
+      addr:[ev.venue,ev.addr].filter(Boolean).join(", "),
+      blurb:ev.blurb||"", tags:ev.tags||[], url:ev.url||""
+    })).filter(ev => ev.name);
+    rebuild(); buildFilters(); render(); if(typeof sendHeight==="function") sendHeight();
+  }).catch(()=>{});
+}
+
+/* ---------- Tell the Wix page how tall we are ---------- */
+var lastH=0;
+function sendHeight(){
+  const h=Math.ceil(document.documentElement.scrollHeight);
+  if(Math.abs(h-lastH)<8) return; lastH=h;
+  try{ parent.postMessage({bedInTheShed:"height",height:h},"*"); }catch(e){}
+}
+if(window.ResizeObserver){ new ResizeObserver(sendHeight).observe(document.body); }
+window.addEventListener("load",sendHeight); setTimeout(sendHeight,300); setTimeout(sendHeight,1200);
+
+/* ---------- Check-in ---------- */
+const KEY="bits-guest";
+/* Inside a Wix iframe some browsers block storage, so fall back to memory for the visit. */
+let memStore=null;
+const store={
+  get(){ try{ return JSON.parse(localStorage.getItem(KEY)||"null"); }catch(e){ return memStore; } },
+  set(v){ memStore=v; try{ localStorage.setItem(KEY,JSON.stringify(v)); }catch(e){} },
+  clear(){ memStore=null; try{ localStorage.removeItem(KEY); }catch(e){} }
+};
+function openApp(g){
+  $("#gate").hidden=true; $("#app").hidden=false;
+  const b=$("#ci-btn"); if(b){b.disabled=false;b.textContent="Check in";}
+  const h=$("#hello"); h.textContent="Checked in as "+g.firstName+" "+g.lastName+". Enjoy your stay!"; h.hidden=false;
+  window.scrollTo(0,0); sendHeight(); try{parent.postMessage({bedInTheShed:"scrollTop"},"*")}catch(e){}
+}
+const saved=store.get(); if(saved&&saved.email) openApp(saved);
+$("#checkout").addEventListener("click",()=>{ store.clear(); $("#app").hidden=true; $("#gate").hidden=false; $("#checkin").reset(); $("#ci-btn").disabled=false; $("#ci-btn").textContent="Check in"; $("#ci-first").focus(); });
+$("#checkin").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const firstName=$("#ci-first").value.trim(), lastName=$("#ci-last").value.trim(), email=$("#ci-email").value.trim(), optIn=$("#ci-optin").checked, msg=$("#ci-msg");
+  const fail=(t,el)=>{msg.className="msg err";msg.textContent=t;if(el)el.focus();};
+  msg.className="msg"; msg.textContent="";
+  if(!firstName) return fail("Add your first name to check in.",$("#ci-first"));
+  if(!lastName) return fail("Add your last name to check in.",$("#ci-last"));
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail("That email address doesn't look right — check for typos.",$("#ci-email"));
+  const btn=$("#ci-btn"); btn.disabled=true; btn.textContent="Checking you in…";
+  const guest={firstName,lastName,email,optIn,source:"bedintheshed.co.uk/whats-on",checkedInAt:new Date().toISOString()};
+  try{
+    if(CHECKIN_ENDPOINT){
+      // text/plain keeps it a "simple" request, so the browser skips the CORS preflight Apps Script can't answer.
+      const opts={method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(guest)};
+      try{
+        const r=await fetch(CHECKIN_ENDPOINT,opts);
+        if(!r.ok) throw new Error(r.status);
+      }catch(netErr){
+        // Fallback: fire-and-forget so the row is still written if the response is blocked.
+        await fetch(CHECKIN_ENDPOINT,Object.assign({mode:"no-cors"},opts));
+      }
+    }
+    store.set(guest);
+    openApp(guest);
+  }catch(err){
+    btn.disabled=false; btn.textContent="Check in";
+    fail("We couldn't check you in just now. Please try again, or contact Andrea on +44 7530 838550.");
+  }
+});
+</script>
+</body>
+</html>
