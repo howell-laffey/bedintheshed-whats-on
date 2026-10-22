@@ -414,7 +414,7 @@ const today = new Date(); today.setHours(0,0,0,0);
 let EVENTS = EVENTS_FALLBACK;
 let live = [];
 function rebuild(){
-  live = PLACES.concat(EVENTS).map(prep).filter(l => !l.end || new Date(l.end+"T23:59:59") >= today);
+  live = PLACES.concat(EVENTS).map(prep).filter(l => (!l.end || new Date(l.end+"T23:59:59") >= today) && l.dist <= RADIUS_MILES);
   $("#gp-count").textContent = live.length;
 }
 rebuild();
