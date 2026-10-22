@@ -518,15 +518,24 @@ function popupHtml(l){
 function updateMap(items){
   if (!map) return;
   markerLayer.clearLayers(); markers = {};
-  const seen = {};
-  items.forEach(l => {
-    if (!l.lat) return;
-    // nudge markers that share a spot so both can be clicked
-    const key = l.lat.toFixed(4)+","+l.lng.toFixed(4); const n = (seen[key] = (seen[key]||0)+1);
-    const off = n>1 ? [(n-1)*0.0009, (n-1)*0.0006] : [0,0];
-    const m = L.marker([l.lat+off[0], l.lng+off[1]], {icon:pinIcon(l.cat), title:l.name}).bindPopup(popupHtml(l));
-    m.on("popupopen", ()=>{ const el = document.querySelector('[data-card="'+l.id+'"]'); if(el) el.addEventListener("click", ev=>{ ev.preventDefault(); scrollToCard(l.id); }); });
-    markerLayer.addLayer(m); markers[l.id] = m;
+  // Group listings that share a spot (e.g. 20 cathedral concerts) into one pin with a list.
+  const groups = {};
+  items.forEach(l => { if(!l.lat) return; const k=l.lat.toFixed(4)+","+l.lng.toFixed(4); (groups[k]=groups[k]||[]).push(l); });
+  Object.values(groups).forEach(g => {
+    const first = g[0];
+    let m;
+    if (g.length === 1) {
+      m = L.marker([first.lat, first.lng], {icon:pinIcon(first.cat), title:first.name}).bindPopup(popupHtml(first));
+    } else {
+      const venue = (first.addr||"").split(",")[0];
+      const html = '<strong>'+esc(venue)+'</strong>'+g.length+' listings here · ≈ '+first.dist.toFixed(1)+' miles'
+        +'<ul style="margin:8px 0 0;padding:0;list-style:none;max-height:180px;overflow:auto">'
+        + g.map(l=>'<li style="padding:4px 0;border-top:1px solid #eee"><a href="#card-'+esc(l.id)+'" data-card="'+esc(l.id)+'" style="border:0">'+esc(l.name)+'</a>'+(l.when?'<br><span style="font-size:12px;color:#6B6F66">'+esc(l.when)+'</span>':'')+'</li>').join("")
+        +'</ul><div style="margin-top:8px"><a href="'+dirUrl(first)+'" target="_blank" rel="noopener">Directions</a></div>';
+      m = L.marker([first.lat, first.lng], {icon:pinIcon(first.cat), title:venue+" ("+g.length+")"}).bindPopup(html, {maxWidth:300});
+    }
+    m.on("popupopen", ()=>{ document.querySelectorAll('.leaflet-popup [data-card]').forEach(el=>el.addEventListener("click", ev=>{ ev.preventDefault(); scrollToCard(el.getAttribute("data-card")); })); });
+    markerLayer.addLayer(m); g.forEach(l => markers[l.id] = m);
   });
   const pts = items.filter(l=>l.lat).map(l=>[l.lat,l.lng]); pts.push([HOME.lat,HOME.lng]);
   if (pts.length>1) map.fitBounds(pts, {padding:[28,28], maxZoom:13});
