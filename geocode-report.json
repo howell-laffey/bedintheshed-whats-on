@@ -1,0 +1,197 @@
+[
+ {
+  "name": "Diggerland Durham",
+  "how": "venue match (theme_park), 0.20 km from postcode",
+  "movedKm": 1.61
+ },
+ {
+  "name": "Beamish, The Living Museum of the North",
+  "how": "postcode DH9 0RG",
+  "movedKm": 0.14
+ },
+ {
+  "name": "Hall Hill Farm",
+  "how": "venue match (theme_park), 0.46 km from postcode",
+  "movedKm": 5.19
+ },
+ {
+  "name": "Ushaw Historic House, Chapels & Gardens",
+  "how": "postcode DH7 7DW",
+  "movedKm": 0.58
+ },
+ {
+  "name": "Durham Cathedral",
+  "how": "venue match (place_of_worship), 0.11 km from postcode",
+  "movedKm": 0.01
+ },
+ {
+  "name": "Durham Castle",
+  "how": "venue match (university), 0.01 km from postcode",
+  "movedKm": 0.08
+ },
+ {
+  "name": "Oriental Museum",
+  "how": "venue match (museum), 0.05 km from postcode",
+  "movedKm": 0.6
+ },
+ {
+  "name": "Gala Durham — Theatre & Cinema",
+  "how": "venue match (cinema), 0.05 km from postcode",
+  "movedKm": 0.2
+ },
+ {
+  "name": "Crook Hall Gardens",
+  "how": "venue match (attraction), 0.04 km from postcode",
+  "movedKm": 0.1
+ },
+ {
+  "name": "Tanfield Railway",
+  "how": "venue match (attraction), 0.00 km from postcode",
+  "movedKm": 2.09
+ },
+ {
+  "name": "Lanchester Valley Railway Path",
+  "addr": "Access at Langley Park, Witton Gilbert & Lanchester",
+  "result": "NO MATCH — kept"
+ },
+ {
+  "name": "Old Esh village & Browney Valley",
+  "how": "postcode DH7 9QR",
+  "movedKm": 2.65
+ },
+ {
+  "name": "Finchale Priory",
+  "how": "venue match (yes), 0.04 km from postcode",
+  "movedKm": 0.96
+ },
+ {
+  "name": "Wharton Park",
+  "how": "venue match (park)",
+  "movedKm": 0.1
+ },
+ {
+  "name": "Causey Arch",
+  "how": "venue match (station), 1.58 km from postcode",
+  "movedKm": 1.23
+ },
+ {
+  "name": "Durham riverbanks walk",
+  "how": "postcode DH1 3RL",
+  "movedKm": 0.42
+ },
+ {
+  "name": "Broom House Farm Shop & Coffee Shop",
+  "how": "postcode DH7 6TR",
+  "movedKm": 2.17
+ },
+ {
+  "name": "Knitsley Farm Shop & Granary Café",
+  "how": "postcode DH8 9EW",
+  "movedKm": 0.55
+ },
+ {
+  "name": "Tealicious Tearoom",
+  "how": "postcode DH1 3AG",
+  "movedKm": 0.09
+ },
+ {
+  "name": "Vennels Café",
+  "how": "venue match (cafe), 0.02 km from postcode",
+  "movedKm": 0.06
+ },
+ {
+  "name": "Ushaw Café",
+  "how": "venue match (cafe), 1.06 km from postcode",
+  "movedKm": 1.5
+ },
+ {
+  "name": "Garden Gate Café, Crook Hall",
+  "how": "postcode DH1 5SZ",
+  "movedKm": 0.14
+ },
+ {
+  "name": "The Cross Keys, Esh",
+  "how": "venue match (pub), 0.03 km from postcode",
+  "movedKm": 2.62
+ },
+ {
+  "name": "The Travellers Rest",
+  "how": "postcode DH7 6TQ",
+  "movedKm": 0.62
+ },
+ {
+  "name": "Glendenning Arms",
+  "how": "postcode DH7 6SY",
+  "movedKm": 0.64
+ },
+ {
+  "name": "Ravello Ristorante",
+  "how": "venue match (restaurant), 0.03 km from postcode",
+  "movedKm": 0.71
+ },
+ {
+  "name": "The Stables, Beamish Hall",
+  "how": "postcode DH9 0YB",
+  "movedKm": 1.35
+ },
+ {
+  "name": "Flat White Kitchen",
+  "how": "venue match (cafe), 0.00 km from postcode",
+  "movedKm": 0.09
+ },
+ {
+  "name": "The Cellar Door",
+  "how": "venue match (restaurant), 0.01 km from postcode",
+  "movedKm": 0.03
+ },
+ {
+  "name": "Zen",
+  "how": "venue match (restaurant), 0.01 km from postcode",
+  "movedKm": 0.03
+ },
+ {
+  "name": "The Curious Mr Fox",
+  "how": "venue match (restaurant), 0.07 km from postcode",
+  "movedKm": 0.15
+ },
+ {
+  "name": "Coarse",
+  "how": "venue match (restaurant), 0.02 km from postcode",
+  "movedKm": 0.34
+ },
+ {
+  "name": "Faru",
+  "how": "venue match (restaurant), 0.01 km from postcode",
+  "movedKm": 0.1
+ },
+ {
+  "name": "Durham Cathedral",
+  "how": "postcode DH1 3EH",
+  "movedKm": 0.11
+ },
+ {
+  "name": "Gala Durham",
+  "how": "postcode DH1 1WA",
+  "movedKm": 0.15
+ },
+ {
+  "name": "",
+  "addr": "Durham City venues, Durham DH1",
+  "result": "NO MATCH — kept"
+ },
+ {
+  "name": "Beamish Museum",
+  "how": "postcode DH9 0RG",
+  "movedKm": 0.14
+ },
+ {
+  "name": "Market Place",
+  "how": "postcode DH1 3NJ",
+  "movedKm": 0.16
+ },
+ {
+  "name": "The Firs",
+  "how": "postcode DH7 9TW",
+  "movedKm": 2.46
+ }
+]
