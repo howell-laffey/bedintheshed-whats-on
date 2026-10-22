@@ -82,6 +82,7 @@ h1 em{font-style:normal;color:var(--accent)}
 /* ---------- Map ---------- */
 .mapwrap{margin-top:18px;scroll-margin-top:118px;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)}
 #map{height:420px;width:100%;background:#EDEBE4}
+.leaflet-tile-pane{filter:saturate(.6) contrast(.95)}
 .maplegend{display:flex;flex-wrap:wrap;gap:6px 16px;padding:10px 14px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);align-items:center}
 .maplegend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px;background:var(--c)}
 .maplegend .home{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;background:var(--forest);vertical-align:-1px}
@@ -494,9 +495,9 @@ function pinIcon(cat, home){
 function initMap(){
   if (typeof L === "undefined" || map) { if(typeof L==="undefined") $("#mapwrap").hidden = true; return; }
   map = L.map("map", {scrollWheelZoom:false, attributionControl:true}).setView([HOME.lat+0.01, HOME.lng+0.03], 11);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    maxZoom: 19, subdomains:"abcd",
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
   L.circle([HOME.lat,HOME.lng], {radius: RADIUS_MILES*1609.34, color: cssVar("--forest"), weight:1, opacity:.35, fillColor: cssVar("--forest"), fillOpacity:.04, interactive:false}).addTo(map);
   L.marker([HOME.lat,HOME.lng], {icon:pinIcon(null,true), zIndexOffset:1000}).addTo(map)
